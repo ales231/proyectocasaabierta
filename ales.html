@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa Abierta 2025 ⚡ Desfibrilador Lógico Interactivo</title>
+    <meta name="description" content="Experimenta la fusión perfecta entre hardware y software. Desfibrilador lógico con compuertas, visualización 3D y datos en tiempo real.">
+    
+    <meta property="og:title" content="Casa Abierta 2025 - Desfibrilador Lógico">
+    <meta property="og:description" content="Stand interactivo: compuertas lógicas + modelo 3D del corazón + sensores en vivo">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630/8b5cf6/ffffff?text=Casa+Abierta+2025">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤</text></svg>">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --neon: #8b5cf6;
+            --neon-glow: #a78bfa;
+            --accent: #ec4899;
+            --dark: #0f0f23;
+            --darker: #050510;
+            --text: #e5e7eb;
+            --text-dim: #9ca3af;
+            --success: #10b981;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--darker);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Hero Futurista */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: radial-gradient(ellipse at top, #1b1b3a 0%, var(--darker) 50%);
+        }
+        
+        .circuit-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            pointer-events: none;
+            background-image: 
+                repeating-linear-gradient(90deg, transparent, transparent 50px, var(--neon) 50px, var(--neon) 51px),
+                repeating-linear-gradient(0deg, transparent, transparent 50px, var(--neon) 50px, var(--neon) 51px);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.05; }
+            50% { opacity: 0.15; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 2rem;
+            max-width: 1000px;
+        }
+        
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--neon), var(--accent), var(--neon-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: float 3s ease-in-out infinite;
+            line-height: 1.1;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--text-dim);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, var(--neon), var(--accent));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 40px rgba(139, 92, 246, 0.6);
+        }
+        
+        .cta-btn:hover::before {
+            left: 100%;
+        }
+        
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(139, 92, 246, 0.05);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            border-color: var(--neon);
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--neon), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+        
+        /* Sections */
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--neon), var(--neon-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            color: var(--text-dim);
+            font-size: 1.2rem;
+        }
+        
+        /* Tech Stack */
+        .tech-stack {
+            background: var(--dark);
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .tech-card {
+            background: rgba(139, 92, 246, 0.05);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-card:hover {
+            border-color: var(--neon);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.3);
+        }
+        
+        .tech-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .tech-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .tech-card p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+        
+        /* Team */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .team-card {
+            background: rgba(139, 92, 246, 0.05);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .team-card:hover {
+            border-color: var(--neon);
+            transform: translateY(-10px);
+        }
+        
+        .team-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            border: 3px solid var(--neon);
+            display: block;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+        }
+        
+        .team-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .role {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .specialty {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+        
+        /* Project */
+        .project {
+            background: var(--dark);
+        }
+        
+        .project-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .project-box {
+            background: rgba(139, 92, 246, 0.05);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 24px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .project-box p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-dim);
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-box p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .project-highlight {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .highlight-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 15px;
+        }
+        
+        .highlight-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight-text {
+            font-weight: 600;
+            color: var(--neon-glow);
+        }
+        
+        /* Challenges */
+        .challenges {
+            background: linear-gradient(135deg, #1a0b2e 0%, #2d1b4e 100%);
+        }
+        
+        .challenge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .challenge-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .challenge-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .challenge-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        .challenge-card:hover::after {
+            transform: scaleX(1);
+        }
+        
+        .challenge-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 10px var(--neon));
+        }
+        
+        .challenge-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .challenge-card p {
+            color: var(--text-dim);
+            font-size: 1rem;
+        }
+        
+        /* CTA Final */
+        .final-cta {
+            text-align: center;
+            padding: 5rem 2rem;
+            background: var(--dark);
+        }
+        
+        .final-cta h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--neon), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .final-cta p {
+            color: var(--text-dim);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal.show {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-box {
+            background: var(--dark);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            animation: slideUp 0.4s ease;
+        }
+        
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--text-dim);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s;
+            line-height: 1;
+        }
+        
+        .modal-close:hover {
+            color: var(--accent);
+        }
+        
+        .modal-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--neon), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .modal-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .ig-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .ig-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(188, 24, 136, 0.5);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--darker);
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-dim);
+            border-top: 1px solid rgba(139, 92, 246, 0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .tech-grid,
+            .team-grid,
+            .challenge-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="circuit-bg"></div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">Desfibrilador Lógico</h1>
+            <p class="hero-subtitle">Cuando el hardware late con el software</p>
+            <p class="hero-description">
+                Un viaje interactivo donde compuertas lógicas controlan el ritmo cardíaco. 
+                Visualización 3D, sensores en tiempo real y tecnología que puedes tocar.
+            </p>
+            <a href="#proyecto" class="cta-btn">Descubre el Proyecto ⚡</a>
+            
+            <div class="stats">
+                <div class="stat-card">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Mentes Creativas</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Posibilidades</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">3D</span>
+                    <span class="stat-label">Modelo del Corazón</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">⚡</span>
+                    <span class="stat-label">Datos en Vivo</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Tech Stack -->
+    <section class="tech-stack">
+        <div class="section-header">
+            <h2 class="section-title">Tecnologías</h2>
+            <p class="section-subtitle">El corazón del proyecto</p>
+        </div>
+        
+        <div class="tech-grid">
+            <div class="tech-card">
+                <span class="tech-icon">🔌</span>
+                <h3>Compuertas Lógicas</h3>
+                <p>Circuitos digitales que simulan el comportamiento de un desfibrilador real</p>
+            </div>
+            
+            <div class="tech-card">
+                <span class="tech-icon">📡</span>
+                <h3>Sensores IoT</h3>
+                <p>Captura de datos en tiempo real para control y monitoreo</p>
+            </div>
+            
+            <div class="tech-card">
+                <span class="tech-icon">🎮</span>
+                <h3>Microcontroladores</h3>
+                <p>Arduino procesando señales y tomando decisiones automáticas</p>
+            </div>
+            
+            <div class="tech-card">
+                <span class="tech-icon">🌐</span>
+                <h3>Web en Vivo</h3>
+                <p>Dashboard interactivo mostrando gráficos y métricas actualizadas</p>
+            </div>
+            
+            <div class="tech-card">
+                <span class="tech-icon">❤</span>
+                <h3>Modelo 3D</h3>
+                <p>Corazón animado que responde a las señales del circuito</p>
+            </div>
+            
+            <div class="tech-card">
+                <span class="tech-icon">⚙</span>
+                <h3>Automatización</h3>
+                <p>Sistema que reacciona sin intervención humana</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Team -->
+    <section id="team">
+        <div class="section-header">
+            <h2 class="section-title">El Equipo</h2>
+            <p class="section-subtitle">Arquitectos de la innovación</p>
+        </div>
+        
+        <div class="team-grid">
+            <div class="team-card">
+                <img class="avatar" src="https://ui-avatars.com/api/?name=Arthur+Beltran&background=8b5cf6&color=fff&size=200&bold=true" alt="Arthur Beltrán">
+                <h3>Arthur Beltrán</h3>
+                <p class="role">Encargado de programación</p>
+                <p class="specialty">" Codigos y Arduino"</p>
+            </div>
+            
+            <div class="team-card">
+                <img class="avatar" src="https://ui-avatars.com/api/?name=Luis+Novillo&background=8b5cf6&color=fff&size=200&bold=true" alt="Luis Novillo">
+                <h3>Luis Novillo</h3>
+                <p class="role">Encargado de Hardware</p>
+                <p class="specialty">"Maestro de circuitos y sensores"</p>
+            </div>
+            
+            <div class="team-card">
+                <img class="avatar" src="https://ui-avatars.com/api/?name=Jose+Velasquez&background=8b5cf6&color=fff&size=200&bold=true" alt="José Velásquez">
+                <h3>José Velásquez</h3>
+                <p class="role">Encargado de Hardware</p>
+                <p class="specialty">"Creador de interfaces en vivo"</p>
+            </div>
+            
+            <div class="team-card">
+                <img class="avatar" src="https://ui-avatars.com/api/?name=Jose+Vaca&background=8b5cf6&color=fff&size=200&bold=true" alt="José Vaca">
+                <h3>José Vaca</h3>
+                <p class="role">Diseñador Grafico</p>
+                <p class="specialty">"Modelo 3D"</p>
+            </div>
+            
+            <div class="team-card">
+                <img class="avatar" src="https://ui-avatars.com/api/?name=Alex+Alban&background=8b5cf6&color=fff&size=200&bold=true" alt="Alex Albán">
+                <h3>Alex Albán</h3>
+                <p class="role">Encargado de Programación</p>
+                <p class="specialty">"Codigos y Arduino"</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Project -->
+    <section id="proyecto" class="project">
+        <div class="section-header">
+            <h2 class="section-title">El Proyecto</h2>
+            <p class="section-subtitle">Donde la tecnología cobra vida</p>
+        </div>
+        
+        <div class="project-content">
+            <div class="project-box">
+                <p>En Casa Abierta presentamos un <strong>stand interactivo</strong> que conecta tecnología y creatividad. Integramos sensores y microcontroladores para mostrar automatización sencilla, una mini web que visualiza datos en tiempo real y un modelo 3D para entender el flujo del sistema.</p>
+                
+                <p>La idea es que cualquiera pueda <strong>probar, tocar y aprender</strong>: desde encender módulos hasta ver cómo una decisión cambia la respuesta del prototipo. Nuestro objetivo es inspirar a más estudiantes a construir, equivocarse rápido y mejorar.</p>
+                
+                <p>Si te gusta la <strong>tecnología aplicada</strong>, este es tu lugar para experimentar.</p>
+                
+                <div class="project-highlight">
+                    <div class="highlight-item">
+                        <div class="highlight-icon">💡</div>
+                        <div class="highlight-text">Idea</div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">✏</div>
+                        <div class="highlight-text">Diseño</div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">🔧</div>
+                        <div class="highlight-text">Prototipo</div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">🚀</div>
+                        <div class="highlight-text">Demo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Challenges -->
+    <section class="challenges">
+        <div class="section-header">
+            <h2 class="section-title">Desafíos Interactivos</h2>
+            <p class="section-subtitle">Tu turno de experimentar</p>
+        </div>
+        
+        <div class="challenge-grid">
+            <div class="challenge-card">
+                <div class="challenge-icon">⚡</div>
+                <h3>Activa el Sistema</h3>
+                <p>Enciende sensores y observa cómo responden los módulos en tiempo real</p>
+            </div>
+            
+            <div class="challenge-card">
+                <div class="challenge-icon">🎮</div>
+                <h3>Controla Variables</h3>
+                <p>Ajusta parámetros y ve el impacto instantáneo en el prototipo</p>
+            </div>
+            
+            <div class="challenge-card">
+                <div class="challenge-icon">📊</div>
+                <h3>Visualiza en Vivo</h3>
+                <p>Explora gráficos que muestran información del sistema</p>
+            </div>
+            
+            <div class="challenge-card">
+                <div class="challenge-icon">🔧</div>
+                <h3>Experimenta Libre</h3>
+                <p>Prueba, equivócate y aprende. Aquí no hay respuestas incorrectas</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Final -->
+    <section class="final-cta">
+        <h2>Conecta con Nosotros</h2>
+        <p>Síguenos en Instagram para más contenido detrás de cámaras</p>
+        <button class="cta-btn" onclick="showModal()">Ver Instagram del Equipo 📱</button>
+    </section>
+    
+    <!-- Modal -->
+    <div id="igModal" class="modal" onclick="closeOnOutside(event)">
+        <div class="modal-box">
+            <button class="modal-close" onclick="hideModal()">&times;</button>
+            <h3 class="modal-title">Síguenos en Instagram</h3>
+            <div class="modal-links">
+                <a href="https://instagram.com/beltranartfire25" target="_blank" rel="noopener" class="ig-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    @beltranartfire25 • Arthur
+                </a>
+                
+                <a href="https://instagram.com/luis_novillo_" target="_blank" rel="noopener" class="ig-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    @luis_novillo_ • Luis
+                </a>
+                
+                <a href="https://instagram.com/je_pan_10" target="_blank" rel="noopener" class="ig-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    @je_pan_10 • José V.
+                </a>
+                
+                <a href="https://instagram.com/joseph._.1707" target="_blank" rel="noopener" class="ig-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    @joseph._.1707 • José Vaca
+                </a>
+                
+                <a href="https://instagram.com/alex_alban___" target="_blank" rel="noopener" class="ig-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    @alex_alban___ • Alex
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Equipo Casa Abierta • Hecho con ⚡ y ❤ por estudiantes apasionados</p>
+    </footer>
+    
+    <script>
+        // Modal functionality
+        function showModal() {
+            document.getElementById('igModal').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function hideModal() {
+            document.getElementById('igModal').classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function closeOnOutside(e) {
+            if (e.target.id === 'igModal') {
+                hideModal();
+            }
+        }
+        
+        // Keyboard accessibility
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                hideModal();
+            }
+        });
+        
+        // Smooth scroll enhancement
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
